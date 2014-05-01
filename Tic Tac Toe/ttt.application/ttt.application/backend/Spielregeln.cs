@@ -30,7 +30,8 @@ namespace ttt.application.backend
 
         public void Gewinner_ermitteln(Action<string> spielende, Action weiter)
         {
-            weiter();
+            if (_spielbrett.Züge.Contains(4)) spielende("Spiel gewonnen!");
+            else weiter();
         }
 
         public void Unentschieden_ermitteln(Action<string> spielende, Action weiter)
