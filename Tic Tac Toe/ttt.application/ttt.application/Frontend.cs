@@ -14,9 +14,16 @@ namespace ttt.application
 {
     public partial class Frontend : Form
     {
+        private List<Button> _spielfelder; 
+
         public Frontend()
         {
             InitializeComponent();
+
+            _spielfelder = new List<Button>();
+            _spielfelder.AddRange(new[]{button1, button2, button3,
+                                        button4, button5, button6,
+                                        button7, button8, button9});
         }
 
 
@@ -39,7 +46,12 @@ namespace ttt.application
 
         public void Spielstand_anzeigen(Spielstand spielstand)
         {
-            MessageBox.Show("Neuer Spielstand!");
+            lblHinweis.Text = spielstand.Hinweis;
+            for (var i = 0; i < spielstand.Spielbrett.Length; i++)
+                _spielfelder[i].Text = spielstand.Spielbrett[i] == Spielstein.X
+                                       ? "X"
+                                       : (spielstand.Spielbrett[i] == Spielstein.O ? "O" : " ");
+
         }
 
 
