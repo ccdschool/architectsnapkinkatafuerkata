@@ -5,7 +5,7 @@ using ttt.application.data;
 
 namespace ttt.application.backend
 {
-    class Spielregeln
+    partial class Spielregeln
     {
         private readonly Spielbrett _spielbrett;
 
@@ -26,12 +26,6 @@ namespace ttt.application.backend
                 invaliderZug("Ungültiger Zug!");
             else
                 validerZug(spielfeldindex);
-        }
-
-        public void Gewinner_ermitteln(Action<string> spielende, Action weiter)
-        {
-            if (_spielbrett.Züge.Contains(4)) spielende("Spiel gewonnen!");
-            else weiter();
         }
 
         public void Unentschieden_ermitteln(Action<string> spielende, Action weiter)

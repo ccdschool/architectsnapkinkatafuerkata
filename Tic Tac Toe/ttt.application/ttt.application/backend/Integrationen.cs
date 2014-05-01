@@ -74,6 +74,7 @@ namespace ttt.application.backend
             this.Spielstand(spielstand);
         }
 
+
         public event Action<Spielstand> Spielstand;
     }
 }
