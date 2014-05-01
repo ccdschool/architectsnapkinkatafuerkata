@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ttt.application.data;
@@ -9,6 +7,15 @@ namespace ttt.application.backend
 {
     class Integrationen
     {
+        private readonly Spielbrett _spielbrett;
+        private readonly Projektionen _projektionen;
+
+        public Integrationen(Spielbrett spielbrett)
+        {
+            _spielbrett = spielbrett;
+            _projektionen = new Projektionen();
+        }
+
         public void Starten()
         {
             Neues_Spiel_erzeugen();   
@@ -22,7 +29,9 @@ namespace ttt.application.backend
 
         public void Neues_Spiel_erzeugen()
         {
-            var spielstand = new Spielstand();
+            _spielbrett.Leeren();
+            var hinweis = "X am Zug";
+            var spielstand = _projektionen.Spielstand_erzeugen(_spielbrett.Züge, hinweis);
             this.Spielstand(spielstand);
         }
 

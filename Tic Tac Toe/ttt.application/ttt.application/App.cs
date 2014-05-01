@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ttt.application.backend;
+using ttt.application.data;
 
 namespace ttt.application
 {
@@ -11,7 +12,8 @@ namespace ttt.application
     {
         public App(Frontend frontend)
         {
-            var integration = new Integrationen();
+            var spielbrett = new Spielbrett();
+            var integration = new Integrationen(spielbrett);
 
             frontend.Spielfeld_ausgewählt += integration.Spielstein_setzen;
             frontend.Neues_Spiel_angefordert += integration.Neues_Spiel_erzeugen;
