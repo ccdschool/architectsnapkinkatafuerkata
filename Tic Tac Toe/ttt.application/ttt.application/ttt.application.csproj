@@ -47,6 +47,7 @@
     <Compile Include="App.cs" />
     <Compile Include="backend\Integrationen.cs" />
     <Compile Include="backend\Projektionen.cs" />
+    <Compile Include="backend\Spielregeln.cs" />
     <Compile Include="data\Spielbrett.cs" />
     <Compile Include="data\Spielstand.cs" />
     <Compile Include="Frontend.cs">

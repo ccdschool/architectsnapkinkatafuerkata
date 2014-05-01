@@ -14,6 +14,11 @@ namespace ttt.application.data
         public IEnumerable<int> Züge
         {
             get { return _züge; }
-        } 
+        }
+
+        public void Zug_registrieren(int spielfeldIndex)
+        {
+            _züge.Add(spielfeldIndex);
+        }
     }
 }

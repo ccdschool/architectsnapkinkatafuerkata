@@ -46,6 +46,7 @@
     <Compile Include="test_Frontend.cs" />
     <Compile Include="test_Projektionen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test_Spielregeln.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ttt.application\ttt.application.csproj">
