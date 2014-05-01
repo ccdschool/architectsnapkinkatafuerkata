@@ -23,19 +23,37 @@ namespace ttt.application.backend
             Neues_Spiel_erzeugen();   
         }
 
+
         public void Spielstein_setzen(int spielfeldIndex)
         {
             var hinweis = "";
-            _spielregeln.Zug_validieren(spielfeldIndex,
-                index => {
-                    _spielbrett.Zug_registrieren(spielfeldIndex);
-                    Spielende_prüfen(
-                        gewinner => hinweis = gewinner,
-                        () => hinweis = _spielregeln.Spieler_bestimmen());
-                },
-                err => hinweis = _spielregeln.Spieler_bestimmen(err));
+            Zug_ausführen(spielfeldIndex,
+                () => hinweis = Spielstand_ermitteln(),
+                err => hinweis = err);
             var spielstand = _projektionen.Spielstand_erzeugen(_spielbrett.Züge, hinweis);
             this.Spielstand(spielstand);
+        }
+
+        private void Zug_ausführen(int spielfeldindex, Action validerZug, Action<string> invaliderZug)
+        {
+            _spielregeln.Zug_validieren(spielfeldindex,
+                index => {
+                    _spielbrett.Zug_registrieren(spielfeldindex);
+                    validerZug();
+                },
+                err => {
+                    var hinweis = _spielregeln.Spieler_bestimmen(err);
+                    invaliderZug(hinweis);
+                });
+        }
+
+        private string Spielstand_ermitteln()
+        {
+            var hinweis = "";
+            Spielende_prüfen(
+                gewinner => hinweis = gewinner,
+                 () => hinweis = _spielregeln.Spieler_bestimmen());
+            return hinweis;
         }
 
         private void Spielende_prüfen(Action<string> spielende, Action weiter)
@@ -46,6 +64,7 @@ namespace ttt.application.backend
                     spielende,
                     weiter));
         }
+
 
         public void Neues_Spiel_erzeugen()
         {
