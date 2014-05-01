@@ -52,7 +52,7 @@ namespace ttt.application.backend
             var hinweis = "";
             Spielende_prüfen(
                 gewinner => hinweis = gewinner,
-                 () => hinweis = _spielregeln.Spieler_bestimmen());
+                () => hinweis = _spielregeln.Spieler_bestimmen());
             return hinweis;
         }
 
@@ -69,7 +69,7 @@ namespace ttt.application.backend
         public void Neues_Spiel_erzeugen()
         {
             _spielbrett.Leeren();
-            var hinweis = "X am Zug";
+            var hinweis = _spielregeln.Spieler_bestimmen();
             var spielstand = _projektionen.Spielstand_erzeugen(_spielbrett.Züge, hinweis);
             this.Spielstand(spielstand);
         }
