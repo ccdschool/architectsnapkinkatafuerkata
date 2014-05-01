@@ -18,8 +18,13 @@ namespace ttt.application.data
 
         public void Zug_registrieren(int spielfeldIndex)
         {
-            if (_züge.Contains(spielfeldIndex)) throw new InvalidOperationException("Zug wurde schon einmal ausgeführt. Spielfeldindex: " + spielfeldIndex);
+            if (Wurde_Zug_schon_ausgeführt(spielfeldIndex)) throw new InvalidOperationException("Zug wurde schon einmal ausgeführt. Spielfeldindex: " + spielfeldIndex);
             _züge.Add(spielfeldIndex);
+        }
+
+        public bool Wurde_Zug_schon_ausgeführt(int spielfeldIndex)
+        {
+            return _züge.Contains(spielfeldIndex);
         }
     }
 }

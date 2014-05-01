@@ -9,16 +9,16 @@ namespace ttt.application.tests
         [Test]
         public void Spieler_bestimmen()
         {
-            var sut = new Spielregeln();
+            var sut = new Spielregeln(null);
 
             var result = sut.Spieler_bestimmen(new int[0]);
             Assert.AreEqual("X am Zug", result);
 
-            result = sut.Spieler_bestimmen(new[] {0});
-            Assert.AreEqual("O am Zug", result);
+            result = sut.Spieler_bestimmen(new[] {0}, "@@@");
+            Assert.AreEqual("@@@ O am Zug", result);
 
             result = sut.Spieler_bestimmen(new[] { 0, 8 });
             Assert.AreEqual("X am Zug", result);
-        } 
+        }
     }
 }

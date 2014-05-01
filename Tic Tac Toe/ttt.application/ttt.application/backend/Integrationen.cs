@@ -15,7 +15,7 @@ namespace ttt.application.backend
         {
             _spielbrett = spielbrett;
             _projektionen = new Projektionen();
-            _spielregeln = new Spielregeln();
+            _spielregeln = new Spielregeln(_spielbrett);
         }
 
         public void Starten()
@@ -25,8 +25,14 @@ namespace ttt.application.backend
 
         public void Spielstein_setzen(int spielfeldIndex)
         {
-            _spielbrett.Zug_registrieren(spielfeldIndex);
-            var hinweis = _spielregeln.Spieler_bestimmen(_spielbrett.Züge);
+            string hinweis = "";
+            _spielregeln.Zug_validieren(spielfeldIndex,
+                index => {
+                    _spielbrett.Zug_registrieren(spielfeldIndex);
+                    hinweis = _spielregeln.Spieler_bestimmen(_spielbrett.Züge);
+                },
+                err => hinweis = _spielregeln.Spieler_bestimmen(_spielbrett.Züge, err)
+             );
             var spielstand = _projektionen.Spielstand_erzeugen(_spielbrett.Züge, hinweis);
             this.Spielstand(spielstand);
         }
