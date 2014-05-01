@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using ttt.application.backend;
+using ttt.application.data;
 
 namespace ttt.application.tests
 {
@@ -9,15 +10,19 @@ namespace ttt.application.tests
         [Test]
         public void Spieler_bestimmen()
         {
-            var sut = new Spielregeln(null);
+            var spielbrett = new Spielbrett();
+            var sut = new Spielregeln(spielbrett);
+            spielbrett.Leeren();
 
-            var result = sut.Spieler_bestimmen(new int[0]);
+            var result = sut.Spieler_bestimmen();
             Assert.AreEqual("X am Zug", result);
 
-            result = sut.Spieler_bestimmen(new[] {0}, "@@@");
+            spielbrett.Zug_registrieren(0);
+            result = sut.Spieler_bestimmen("@@@");
             Assert.AreEqual("@@@ O am Zug", result);
 
-            result = sut.Spieler_bestimmen(new[] { 0, 8 });
+            spielbrett.Zug_registrieren(8);
+            result = sut.Spieler_bestimmen();
             Assert.AreEqual("X am Zug", result);
         }
     }

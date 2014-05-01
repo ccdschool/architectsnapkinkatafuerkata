@@ -14,9 +14,9 @@ namespace ttt.application.backend
             _spielbrett = spielbrett;
         } 
 
-        public string Spieler_bestimmen(IEnumerable<int> züge, string hinweis = "")
+        public string Spieler_bestimmen(string hinweis = "")
         {
-            var spielerhinweis = züge.Count()%2 == 0 ? "X am Zug" : "O am Zug";
+            var spielerhinweis = _spielbrett.Züge.Count()%2 == 0 ? "X am Zug" : "O am Zug";
             return hinweis + (hinweis == "" ? "" : " ") + spielerhinweis;
         }
 
@@ -26,6 +26,19 @@ namespace ttt.application.backend
                 invaliderZug("Ungültiger Zug!");
             else
                 validerZug(spielfeldindex);
+        }
+
+        public void Gewinner_ermitteln(Action<string> spielende, Action weiter)
+        {
+            weiter();
+        }
+
+        public void Unentschieden_ermitteln(Action<string> spielende, Action weiter)
+        {
+            if (_spielbrett.Züge.Count() == 9)
+                spielende("Unentschieden!");
+            else
+                weiter();
         }
     }
 }

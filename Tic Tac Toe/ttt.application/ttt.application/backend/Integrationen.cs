@@ -25,16 +25,26 @@ namespace ttt.application.backend
 
         public void Spielstein_setzen(int spielfeldIndex)
         {
-            string hinweis = "";
+            var hinweis = "";
             _spielregeln.Zug_validieren(spielfeldIndex,
                 index => {
                     _spielbrett.Zug_registrieren(spielfeldIndex);
-                    hinweis = _spielregeln.Spieler_bestimmen(_spielbrett.Züge);
+                    Spielende_prüfen(
+                        gewinner => hinweis = gewinner,
+                        () => hinweis = _spielregeln.Spieler_bestimmen());
                 },
-                err => hinweis = _spielregeln.Spieler_bestimmen(_spielbrett.Züge, err)
-             );
+                err => hinweis = _spielregeln.Spieler_bestimmen(err));
             var spielstand = _projektionen.Spielstand_erzeugen(_spielbrett.Züge, hinweis);
             this.Spielstand(spielstand);
+        }
+
+        private void Spielende_prüfen(Action<string> spielende, Action weiter)
+        {
+            _spielregeln.Gewinner_ermitteln(
+                spielende,
+                () => _spielregeln.Unentschieden_ermitteln(
+                    spielende,
+                    weiter));
         }
 
         public void Neues_Spiel_erzeugen()
