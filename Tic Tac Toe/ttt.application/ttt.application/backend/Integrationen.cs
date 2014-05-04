@@ -34,7 +34,9 @@ namespace ttt.application.backend
             this.Spielstand(spielstand);
         }
 
-        private void Zug_ausführen(int spielfeldindex, Action validerZug, Action<string> invaliderZug)
+        private void Zug_ausführen(int spielfeldindex, 
+                                   Action validerZug, 
+                                   Action<string> invaliderZug)
         {
             _spielregeln.Zug_validieren(spielfeldindex,
                 index => {

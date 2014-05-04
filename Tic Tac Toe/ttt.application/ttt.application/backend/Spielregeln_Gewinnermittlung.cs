@@ -11,7 +11,7 @@ namespace ttt.application.backend
         public void Gewinner_ermitteln(Action<string> spielende, Action weiter)
         {
             var spielerzüge = Züge_nach_Spielern_trennen();
-            var gewinnreihen = Gewinnreihen_zusammenstellen();
+            var gewinnreihen = Gewinnreihen_zusammenstellen().ToArray();
             Spielergewinn_prüfen(gewinnreihen, spielerzüge[0],
                 () => spielende("Gratulation! X hat gewonnen."),
                 () => Spielergewinn_prüfen(gewinnreihen, spielerzüge[1],
@@ -51,10 +51,12 @@ namespace ttt.application.backend
 
 
 
-        internal void Spielergewinn_prüfen(IEnumerable<int[]> gewinnreihen, int[] spielerzüge,
-                                  Action gewinn, Action weiter)
+        internal void Spielergewinn_prüfen(
+                        IEnumerable<int[]> gewinnreihen, int[] spielerzüge,
+                        Action gewinn, Action weiter)
         {
-            if (gewinnreihen.Any(gr => spielerzüge.Intersect(gr).Count() == gr.Count())) {
+            if (gewinnreihen.Any(gr => spielerzüge.Intersect(gr).Count() == 
+                                       gr.Count())) {
                 gewinn();
                 return;
             }
