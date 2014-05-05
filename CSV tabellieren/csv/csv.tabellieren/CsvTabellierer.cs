@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using csv.parsen;
 
 namespace csv.tabellieren
@@ -47,9 +45,14 @@ namespace csv.tabellieren
         }
 
 
-        private IEnumerable<string> Body_formatieren(string[][] bodyRecords, int[] spaltenbreiten)
+        private IEnumerable<string> Body_formatieren(IEnumerable<string[]> bodyRecords, int[] spaltenbreiten)
         {
-            return bodyRecords.Select(br => string.Join("|", br));
+            return bodyRecords.Select(br => string.Join("|", Werte_auf_Spaltenbreiten_bringen(br, spaltenbreiten)));
+        }
+
+        private string[] Werte_auf_Spaltenbreiten_bringen(IEnumerable<string> werte, int[] spaltenbreiten)
+        {
+            return werte.Select((w, i) => w.PadRight(spaltenbreiten[i], ' ')).ToArray();
         }
 
 
