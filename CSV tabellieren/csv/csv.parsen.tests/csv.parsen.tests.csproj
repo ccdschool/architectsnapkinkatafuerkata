@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="equalidator">
+      <HintPath>..\..\..\lib\equalidator.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\lib\nunit.framework.dll</HintPath>
     </Reference>

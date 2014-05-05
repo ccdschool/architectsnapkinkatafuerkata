@@ -8,15 +8,18 @@ namespace csv.parsen
 {
     public class CsvParser
     {
-        public IEnumerable<string[]> Parsen(IEnumerable<string> csvText)
+        public string[][] Parsen(IEnumerable<string> csvText)
         {
-            return csvText.Select(csvLine => csvLine.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries));
+            return csvText.Select(csvLine => csvLine.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
+                          .ToArray();
         } 
 
 
-        public Tuple<string[], IEnumerable<string[]>> Header_von_Body_trennen(IEnumerable<string[]> records)
+        public Tuple<string[], string[][]> Header_von_Body_trennen(IEnumerable<string[]> records)
         {
-            throw new NotImplementedException();
+            var header = records.First();
+            var body = records.Skip(1).ToArray();
+            return new Tuple<string[], string[][]>(header, body);
         } 
     }
 }

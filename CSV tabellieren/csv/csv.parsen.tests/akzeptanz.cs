@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using equalidator;
 
 namespace csv.parsen.tests
 {
@@ -16,7 +17,7 @@ namespace csv.parsen.tests
         {
             var sut = new CsvParser();
 
-            var records = sut.Parsen(File.ReadLines("personen.csv"));
+            var result = sut.Parsen(File.ReadLines("personen.csv"));
 
             var expected = new[]
                 {
@@ -25,7 +26,7 @@ namespace csv.parsen.tests
                     new[]{"Peter", "42", "München"},
                     new[]{"Maria", "34", "Hamburg"}
                 };
-            Assert.AreEqual(expected, records);
+            Assert.AreEqual(expected, result);
         }
 
 
@@ -35,6 +36,7 @@ namespace csv.parsen.tests
             var sut = new CsvParser();
 
             var records = sut.Parsen(File.ReadLines("personen.csv"));
+            var result = sut.Header_von_Body_trennen(records);
 
             var expectedHeader = new[] {"Name", "Alter", "Stadt"};
             var expectedRecords = new[]
@@ -43,7 +45,7 @@ namespace csv.parsen.tests
                     new[]{"Peter", "42", "München"},
                     new[]{"Maria", "34", "Hamburg"}
                 };
-            Assert.AreEqual(new Tuple<string[],IEnumerable<string[]>>(expectedHeader, expectedRecords), records);
+            Equalidator.AreEqual(new Tuple<string[],string[][]>(expectedHeader, expectedRecords), result,true);
         }
     }
 }
