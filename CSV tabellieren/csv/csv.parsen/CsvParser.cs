@@ -10,7 +10,7 @@ namespace csv.parsen
     {
         public IEnumerable<string[]> Parsen(IEnumerable<string> csvText)
         {
-            throw new NotImplementedException();
+            return csvText.Select(csvLine => csvLine.Split(new[] {';'}, StringSplitOptions.RemoveEmptyEntries));
         } 
 
 
