@@ -12,7 +12,18 @@ namespace csv.tabellieren.tests
     public class akzeptanz
     {
         [Test]
-        public void Datei_tabellieren()
+        public void Ganz_simple_Datei_tabellieren()
+        {
+            var sut = new CsvTabellierer();
+
+            var tabelle = sut.Tabellieren(File.ReadLines("simpel.csv")).ToArray();
+
+            Assert.AreEqual(File.ReadLines("simpeltabelle.txt").ToArray(), tabelle);
+        }
+
+
+        [Test]
+        public void Datei_tabellieren_mit_unterschiedlichen_Spaltenbreiten()
         {
             var sut = new CsvTabellierer();
 

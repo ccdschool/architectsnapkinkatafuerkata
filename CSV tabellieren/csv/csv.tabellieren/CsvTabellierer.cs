@@ -19,9 +19,39 @@ namespace csv.tabellieren
         }
 
 
-        private IEnumerable<string> Tabelle_bauen(Tuple<string[], IEnumerable<string[]>> tabellenteile)
+        private IEnumerable<string> Tabelle_bauen(Tuple<string[], string[][]> tabellenteile)
         {
-            throw new NotImplementedException();
+            var spaltenbreiten = Spaltenbreiten_ermitteln(tabellenteile);
+            var tabellierter_header = Header_formatieren(tabellenteile.Item1, spaltenbreiten);
+            var tabellierter_body = Body_formatieren(tabellenteile.Item2, spaltenbreiten);
+            return Tabelle_zusammenbauen(tabellierter_header, tabellierter_body);
+        }
+
+
+        private int[] Spaltenbreiten_ermitteln(Tuple<string[], string[][]> tabellenteile)
+        {
+            return tabellenteile.Item1.Select(v => v.Length).ToArray();
+        }
+
+
+        private IEnumerable<string> Header_formatieren(string[] headerRecord, int[] spaltenbreiten)
+        {
+            yield return Body_formatieren(new[] {headerRecord}, spaltenbreiten).First();
+
+            var unterstreichungen = spaltenbreiten.Select(breite => "".PadRight(breite, '-'));
+            yield return string.Join("+", unterstreichungen);
+        }
+
+
+        private IEnumerable<string> Body_formatieren(string[][] bodyRecords, int[] spaltenbreiten)
+        {
+            return bodyRecords.Select(br => string.Join("|", br));
+        }
+
+
+        private IEnumerable<string> Tabelle_zusammenbauen(IEnumerable<string> tabellierterHeader, IEnumerable<string> tabellierterBody)
+        {
+            return tabellierterHeader.Concat(tabellierterBody);
         }
     }
 }
