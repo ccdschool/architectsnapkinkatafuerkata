@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="CsvTabellierer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tabellierer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\csv.parsen\csv.parsen.csproj">
