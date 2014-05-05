@@ -30,7 +30,11 @@ namespace csv.tabellieren
 
         private int[] Spaltenbreiten_ermitteln(Tuple<string[], string[][]> tabellenteile)
         {
-            return tabellenteile.Item1.Select(v => v.Length).ToArray();
+            var spaltenbreiten = tabellenteile.Item1.Select(v => v.Length).ToArray();
+            for (var i = 0; i < spaltenbreiten.Length; i++)
+                spaltenbreiten[i] = Math.Max(spaltenbreiten[i], 
+                                             tabellenteile.Item2.Select(r => r[i]).Max(v => v.Length));
+            return spaltenbreiten;
         }
 
 
