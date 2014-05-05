@@ -8,5 +8,9 @@ namespace csv.tabellieren
 {
     public class CsvTabellierer
     {
+        public IEnumerable<string> Tabellieren(IEnumerable<string> csvText)
+        {
+            return csvText;
+        } 
     }
 }
