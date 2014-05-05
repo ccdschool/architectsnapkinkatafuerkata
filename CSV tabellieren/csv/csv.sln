@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csv.parsen", "csv.parsen\cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csv.tabellieren.tests", "csv.tabellieren.tests\csv.tabellieren.tests.csproj", "{6A3926AC-A2C3-4DB5-8925-57C307FD17F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csv.parsen.tests", "csv.parsen.tests\csv.parsen.tests.csproj", "{F6BA9848-2D5D-404B-B187-1BCB3BC2C174}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "parsen", "parsen", "{AA8B6E2C-6148-4623-916A-98A3179EFBB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tabellieren", "tabellieren", "{3BC77F61-3F71-498D-9230-00D6FA8D4686}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,8 +31,18 @@ Global
 		{6A3926AC-A2C3-4DB5-8925-57C307FD17F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A3926AC-A2C3-4DB5-8925-57C307FD17F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A3926AC-A2C3-4DB5-8925-57C307FD17F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6BA9848-2D5D-404B-B187-1BCB3BC2C174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6BA9848-2D5D-404B-B187-1BCB3BC2C174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6BA9848-2D5D-404B-B187-1BCB3BC2C174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6BA9848-2D5D-404B-B187-1BCB3BC2C174}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DFF010C5-567F-4C6F-937F-69AADF9951E0} = {AA8B6E2C-6148-4623-916A-98A3179EFBB5}
+		{F6BA9848-2D5D-404B-B187-1BCB3BC2C174} = {AA8B6E2C-6148-4623-916A-98A3179EFBB5}
+		{98F5CD14-1013-4C2B-93C8-1CC7FEC2A6C5} = {3BC77F61-3F71-498D-9230-00D6FA8D4686}
+		{6A3926AC-A2C3-4DB5-8925-57C307FD17F8} = {3BC77F61-3F71-498D-9230-00D6FA8D4686}
 	EndGlobalSection
 EndGlobal
