@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "todictionary", "todictionary\todictionary.csproj", "{72BFF278-1A95-4855-A7B6-071EC649625E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "todictionary.tests", "todictionary.tests\todictionary.tests.csproj", "{6D103EB3-EBA2-4318-BB85-647C7D5A7CA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72BFF278-1A95-4855-A7B6-071EC649625E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BFF278-1A95-4855-A7B6-071EC649625E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BFF278-1A95-4855-A7B6-071EC649625E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BFF278-1A95-4855-A7B6-071EC649625E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D103EB3-EBA2-4318-BB85-647C7D5A7CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D103EB3-EBA2-4318-BB85-647C7D5A7CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D103EB3-EBA2-4318-BB85-647C7D5A7CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D103EB3-EBA2-4318-BB85-647C7D5A7CA9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
