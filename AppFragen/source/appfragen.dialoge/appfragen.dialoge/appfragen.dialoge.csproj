@@ -50,6 +50,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuswertungDialog.xaml.cs">
+      <DependentUpon>AuswertungDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FragebogenDialog.xaml.cs">
       <DependentUpon>FragebogenDialog.xaml</DependentUpon>
     </Compile>
@@ -77,6 +80,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AuswertungDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FragebogenDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
