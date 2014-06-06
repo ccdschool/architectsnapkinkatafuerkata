@@ -5,11 +5,11 @@ namespace appfragen.contracts
     public class Fragestellung
     {
         public Fragestellung() {
-            Antwortmöglichkeiten = new List<string>();
+            Antwortmöglichkeiten = new string[0];
         }
 
         public string Frage { get; set; }
 
-        public List<string> Antwortmöglichkeiten { get; set; }
+        public string[] Antwortmöglichkeiten { get; set; }
     }
 }

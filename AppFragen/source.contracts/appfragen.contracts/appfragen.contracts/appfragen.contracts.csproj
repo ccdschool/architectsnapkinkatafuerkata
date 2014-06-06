@@ -42,6 +42,8 @@
     <Compile Include="Antwortbogen.cs" />
     <Compile Include="Auflösung.cs" />
     <Compile Include="Auswertung.cs" />
+    <Compile Include="beispieldaten\Antwortbogenfabrik.cs" />
+    <Compile Include="beispieldaten\Auswertungsfabrik.cs" />
     <Compile Include="Fragestellung.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

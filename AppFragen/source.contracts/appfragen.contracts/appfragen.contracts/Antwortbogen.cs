@@ -5,13 +5,13 @@ namespace appfragen.contracts
     public class Antwortbogen
     {
         public Antwortbogen() {
-            Fragestellungen = new List<Fragestellung>();
-            Antworten = new List<int>();
+            Fragestellungen = new Fragestellung[0];
+            Antworten = new int[0];
         }
 
-        public List<Fragestellung> Fragestellungen { get; set; }
+        public Fragestellung[] Fragestellungen { get; set; }
 
-        public List<int> Antworten { get; set; }
+        public int[] Antworten { get; set; }
 
         public bool IstAuswertbar { get; set; }
     }
