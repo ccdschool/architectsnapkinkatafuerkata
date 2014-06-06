@@ -18,9 +18,7 @@ namespace appfragen.dialoge
         }
 
         public event Action Befragung_starten;
-
         public event Action<int> Antwort_gegeben;
-
         public event Action Auswerten;
     }
 }
