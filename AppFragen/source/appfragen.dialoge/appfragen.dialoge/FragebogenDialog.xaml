@@ -1,0 +1,18 @@
+﻿<Window x:Class="appfragen.dialoge.FragebogenDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Fragebogen" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="More to come..." Grid.Row="0"/>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="btnAuswerten" Content="Show my scrore..." Margin="5" />
+            <Button x:Name="btnStart" Content="Start new questionnaire" Margin="5" />
+        </StackPanel>
+    </Grid>
+</Window>
