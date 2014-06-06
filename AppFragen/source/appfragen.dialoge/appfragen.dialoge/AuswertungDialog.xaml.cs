@@ -9,7 +9,7 @@ namespace appfragen.dialoge
         public AuswertungDialog() {
             InitializeComponent();
 
-            this.Closed += (o, e) => Auswertung_beendet();
+            this.Closed += (o, e) => Auswertung_beendet(); 
         }
 
 
