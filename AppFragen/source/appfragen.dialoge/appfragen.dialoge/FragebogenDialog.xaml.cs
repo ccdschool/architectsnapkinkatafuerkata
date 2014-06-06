@@ -13,7 +13,7 @@ namespace appfragen.dialoge
             btnStart.Click += (o, e) => Befragung_starten();
         }
 
-        public void Neuer_Antwortbogen(Antwortbogen antwortbogen) {
+        public void Antwortbogen_anzeigen(Antwortbogen antwortbogen) {
             
         }
 

@@ -8,9 +8,8 @@ namespace appfragen.contracts
             Auflösungen = new List<Auflösung>();
         }
 
-        public int KorrekteAntworten { get; set; }
-
         public int AnzahlFragestellungen { get; set; }
+        public int KorrekteAntworten { get; set; }
 
         public List<Auflösung> Auflösungen { get; set; }
     }
