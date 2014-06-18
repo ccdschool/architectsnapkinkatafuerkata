@@ -21,7 +21,7 @@ namespace appfragen.applikation
             Antwortbogen(Antwortbogenfabrik.InBearbeitung);
         }
 
-
+        // iteration 2: Antwort loggen
         public void Antworten(int antwort)
         {
             Antwortbogen(Antwortbogenfabrik.Fertig);
