@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using appfragen.dialoge;
+﻿using appfragen.dialoge;
 
 namespace appfragen.applikation
 {
-    class Applikation
+    internal class Applikation
     {
         private readonly FragebogenDialog _fbDlg;
         private readonly Interaktoren _inter;
 
-        public Applikation(FragebogenDialog fbDlg, AuswertungDialog auswDlg, Interaktoren inter)
-        {
+        public Applikation(FragebogenDialog fbDlg, AuswertungDialog auswDlg, Interaktoren inter) {
             _fbDlg = fbDlg;
             _inter = inter;
 
@@ -26,11 +20,9 @@ namespace appfragen.applikation
             _inter.Auswertung += auswDlg.Auswertung_Anzeigen;
         }
 
-
-        public void Run()
-        {
+        public void Run() {
             _inter.Starten();
-            _fbDlg.ShowDialog();
+            _fbDlg.Show();
         }
     }
 }
