@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using appfragen.contracts;
 
 namespace appfragen.dialoge
@@ -12,12 +12,31 @@ namespace appfragen.dialoge
 
             btnAuswerten.Click += (o, e) => Auswerten();
             btnStart.Click += (o, e) => Befragung_starten();
-            btnAntworten.Click += (o, e) => Antwort_gegeben(42);
         }
 
         public void Antwortbogen_anzeigen(Antwortbogen antwortbogen) {
             btnAuswerten.IsEnabled = antwortbogen.IstAuswertbar;
-            lblFrage.Text = antwortbogen.Fragestellungen.First().Frage;
+            panel.Children.Clear();
+
+            var antwortIndex = 0;
+
+            foreach (var fragestellung in antwortbogen.Fragestellungen) {
+                var stackPanel = new StackPanel();
+                var groupBox = new GroupBox {
+                    Header = fragestellung.Frage,
+                    Content = stackPanel
+                };
+                panel.Children.Add(groupBox);
+
+                foreach (var antwortmöglichkeit in fragestellung.Antwortmöglichkeiten) {
+                    var radioButton = new RadioButton {
+                        Content = antwortmöglichkeit
+                    };
+                    var i = antwortIndex++;
+                    radioButton.Click += (o, e) => Antwort_gegeben(i);
+                    stackPanel.Children.Add(radioButton);
+                }
+            }
         }
 
         public event Action Befragung_starten;

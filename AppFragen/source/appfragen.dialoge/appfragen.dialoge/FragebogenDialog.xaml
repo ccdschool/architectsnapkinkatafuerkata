@@ -8,10 +8,38 @@
             <RowDefinition Height="48"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0">
-            <TextBlock x:Name="lblFrage" Text="More to come..."/>
-            <Button x:Name="btnAntworten" Content="Antworten"/>
-        </StackPanel>
+        <ScrollViewer Grid.Row="0" >
+            <StackPanel x:Name="panel">
+                <GroupBox Header="Frage 1?">
+                    <StackPanel>
+                        <RadioButton Content="Antwort 1"/>
+                        <RadioButton Content="Antwort 2"/>
+                        <RadioButton Content="Antwort 3"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Frage 1?">
+                    <StackPanel>
+                        <RadioButton Content="Antwort 1"/>
+                        <RadioButton Content="Antwort 2"/>
+                        <RadioButton Content="Antwort 3"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Frage 1?">
+                    <StackPanel>
+                        <RadioButton Content="Antwort 1"/>
+                        <RadioButton Content="Antwort 2"/>
+                        <RadioButton Content="Antwort 3"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Frage 1?">
+                    <StackPanel>
+                        <RadioButton Content="Antwort 1"/>
+                        <RadioButton Content="Antwort 2"/>
+                        <RadioButton Content="Antwort 3"/>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button x:Name="btnAuswerten" Content="Show my scrore..." Margin="5" />

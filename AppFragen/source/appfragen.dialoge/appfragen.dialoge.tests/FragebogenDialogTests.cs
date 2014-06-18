@@ -21,6 +21,7 @@ namespace appfragen.dialoge.tests
         [Test, Explicit, RequiresSTA]
         public void Antwortbogen_anzeigen() {
             var sut = new FragebogenDialog();
+            sut.Antwort_gegeben += i => MessageBox.Show(string.Format("Antwort {0} gegeben", i));
 
             sut.Antwortbogen_anzeigen(new Antwortbogen {
                 IstAuswertbar = false,
