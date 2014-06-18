@@ -36,7 +36,7 @@ namespace appfragen.contracts.beispieldaten
         {
             get { 
                 var awb = InBearbeitung;
-                awb.Antworten = new[] {2, 7};
+                awb.Antworten = new[] {2,7};
                 awb.IstAuswertbar = true;
                 return awb;
             }
