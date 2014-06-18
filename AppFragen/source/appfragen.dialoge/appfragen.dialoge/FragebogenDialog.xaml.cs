@@ -11,6 +11,8 @@ namespace appfragen.dialoge
 
             btnAuswerten.Click += (o, e) => Auswerten();
             btnStart.Click += (o, e) => Befragung_starten();
+
+            btnAuswerten.IsEnabled = false;
         }
 
         public void Antwortbogen_anzeigen(Antwortbogen antwortbogen) {
