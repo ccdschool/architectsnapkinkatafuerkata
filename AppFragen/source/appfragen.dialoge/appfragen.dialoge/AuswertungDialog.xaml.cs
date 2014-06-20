@@ -18,7 +18,11 @@ namespace appfragen.dialoge
             Hide();
         }
 
-        public void Auswertung_Anzeigen(Auswertung auswertung) {
+        public void Auswertung_Anzeigen(Auswertung auswertung)
+        {
+            txtStatus.Text = string.Format("{0} Fragen, {1} korrekte Antworten", 
+                                           auswertung.AnzahlFragestellungen,
+                                           auswertung.KorrekteAntworten);
             ShowDialog();
         }
 
